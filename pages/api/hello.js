@@ -6,7 +6,8 @@ export default function handler(req, res) {
   express.use(fileUpload())
   const sqlite = require('sqlite3').verbose();
 
-  const db = new sqlite.Database('test.db');
+  const db = new sqlite.Database('./test.db');
+  console.log(db)
 
   var sql = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')";
   db.run(sql, function (err) {

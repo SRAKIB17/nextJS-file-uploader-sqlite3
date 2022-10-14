@@ -10,10 +10,11 @@ export default function PrivatePage(props) {
       const i = event.target.files[0];
 
       setImage(i);
+
       setCreateObjectURL(URL.createObjectURL(i));
     }
   };
-
+  console.log(createObjectURL)
   const uploadToServer = async (event) => {
     const body = new FormData();
     body.append("file", image);
@@ -27,7 +28,7 @@ export default function PrivatePage(props) {
   return (
     <div>
       <div>
-        <img src={createObjectURL} />
+        <embed src={createObjectURL} />
         <h4>Select Image</h4>
         <input type="file" name="myImage" onChange={uploadToClient} />
         <button

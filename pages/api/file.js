@@ -6,7 +6,6 @@ export const config = {
     bodyParser: false
   }
 };
-
 export default async function handler(req, res) {
   const form = new formidable.IncomingForm();
   form.parse(req, async function (err, fields, files) {
@@ -14,7 +13,7 @@ export default async function handler(req, res) {
     const path = file.filepath
     const name = file.originalFilename;
     const data = fs.readFileSync(path);
-    fs.writeFileSync(`./public/${name}`, data);
+    fs.writeFileSync(`./${name}`, data);
     
     return res.status(201).send("");
   });
